@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="google-site-verification" content="gIYbUr7Z5tkijPE8SCR06S77Tfv-1zCZwNmKHAHGO1o">
+        <meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"de79bc54f6",applicationID:"117809743"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1167.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+        <title>  Wifi Pod
+</title>
+
+                                    <link rel="shortcut icon" href="https://cdn.widitrade.com/favicon.ico">
+                <link rel="icon" type="image/x-icon" href="https://cdn.widitrade.com/favicon.ico" />
+                    
+        <link rel="manifest" href="manifest.json">
+
+                
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Custom styles -->
+    <link href="https://assets.widitrade.com/assets/templates/5db9a873625da7d7e55ef0d2/blog-post.min.css" rel="stylesheet">
+    <link href="https://assets.widitrade.com/assets/templates/5db9a873625da7d7e55ef0d2/customc.css" rel="stylesheet">
+    <link href="https://assets.widitrade.com/assets/templates/5db9a873625da7d7e55ef0d2/animate.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --font-family-main: 'Nunito', sans-serif;
+            --color-white: #fafafa;
+            --color-black: #353535;
+            --color-main: rgb(24, 21, 21); /* "Mr.GadgetPro" Blue by default */
+            --color-main-hover: #1e6efa;
+            --color-main-lighter: #b4cefd;
+            --color-title: #444;
+            --color-bg-navbar: rgba(0, 0, 0, 0);
+            --color-bg-mobile-button: rgb(3, 3, 4);
+            --color-link-navbar: var(--color-main);
+            --color-border: #ddd;
+            --color-btn-bg: #508efb;
+            --color-btn-text: var(--color-white);
+            --color-btn-bg-hover: var(--color-main-hover);
+            --color-btn-text-hover: #fff;
+            --color-bg-footer: rgba(250, 250, 250, 0.95);
+            --color-text-footer: rgb(0, 0, 0);
+            --color-primary: ;
+            --color-bg-column-product: rgba(79, 205, 233, 0.22);
+        }
+        /*add to customc.css*/
+        .th-card{margin-top:0px !important;}
+        body{padding-top:0px !important;}
+        .shadow-box{
+            -webkit-box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0);
+            -moz-box-shadow: 0px 0px 10px -4px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.14);
+            }
+        .th-cards-container {
+            position: fixed;
+            max-width: 283px !important;
+        }
+        h2{font-size:2rem !important;}
+        body {
+            background-image: url(https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/background.png);
+            transform: none;
+            background-color: var(--color-white);
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+            font-size: 1rem;
+            color: var(--color-black);
+            font-weight: 400;
+            line-height: 1.5 !important;
+        }
+        .th-post-text-block.th-post-text-quote {
+            font-weight: 400;
+            font-style: normal;
+        }
+        @media (max-width: 991px){
+            .tit-mob {
+                font-size: 18px !important;
+            }}
+        .tit-mob {
+                font-size: 38px}
+        .mtop{margin-top:0px!important;}
+        .th-advertorial{margin:0 !important;padding-bottom:5px;}
+    </style>
+    
+
+                
+                
+                    <meta property="og:title" content="Wifi Pod" />
+            <meta property="og:description" content="Connect to the internet from anywhere with 4G speed!" />
+            <meta property="og:image" content="https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/product1.png" />
+        
+        <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NGZ7Z7Q');</script>
+<!-- End Google Tag Manager -->    </head>
+    <body >
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+    window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                    "background": "#343c66",
+                    "text": "#cfcfe8"
+                },
+                "button": {
+                    "background": "#f71559"
+                }
+            },
+            "content": {
+                "message": "This website uses its own and third-party cookies for technical, analytical and advertising purposes. For more information about the use of each of the cookies, please see our Cookies Policy. Browsing through the Portal implies acceptance of our cookies policy. Learn more.",
+                "dismiss": "Ok"
+            }
+        })});
+</script>
+            <!-- 00. Cookies banner -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+                        <img class="th-main-logo productlogo" width="214" height="47" src="https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/sitelogopositive.png">                                                                                                                                                                                                                                                                                                                                                                                    </div>
+    </nav>
+
+    <!-- 00. All (Blog) Page Content -->
+    <div class="container mtop">
+
+        <p class="th-advertorial">ADVERTORIAL</p>
+
+        <div class="row">
+
+            <!-- 01. Left Side COLUMN :: Blog Post Content -->
+            <div class="col-xl-8 bg-white shadow-box">
+
+                <!-- (product) Blog Post 01 -->
+                <div class="th-product-blog-post">
+                    <!--Breadcrum navigation-->
+                    <!--<span class="ribbon">HOME >> TECHNOLOGY >> GADGETS</span>-->
+                    
+                    <!-- a) Title -->
+                    <h2 class="mt-4 tit-mob">Access the Internet anywhere with this incredible device!<br><br></h2>
+
+                                <!-- b) Author Pic / Author Name / Date -->
+                    <div class="media th-post-author">
+                        <!--<img class="mr-3" src="https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/avatar.png" alt="Helen Fisher" title="Helen Fisher">-->
+                        <div class="media-body">
+                            <!--<h6 class="mt-0 th-post-title">Helen Fisher</h6>-->
+                            <!--<small class="th-post-tag">published</small>--><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i> <i class="date-post"></i>, Helen Fisher
+                        </div>
+                    </div>
+                                    <!---->
+
+                    </p>
+
+                    <!-- c) Preview Image -->
+                    <img src="https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/advbanner1.jpg" style="width:100%">
+
+                    <!-- d) Post Text 01 -->
+                    <p class="th-post-text-block">
+                        <!--<a href="https://wifipodpromo.com/?widipub_id=5dddf294ef2864061f1f9253&amp;wtrd_offer_id=5e42915fef2864383a613dc2&amp;wtrd_offer_lids%5B%5D=5e4bf203ef2864381d4d2309&amp;wtrd_prev_pid=5e45097aef28640d28250353">-->It’s always the same old bit. Aren't you tired of having to connect to public WiFi networks when you travel? They’re slow, unreliable and not secure. We have the perfect solution to this problem. Take your own portable WiFi network anywhere! This great WiFi Pod is a portable WiFi device that provides a high-speed Internet connection quickly and securely wherever you go.<br><br>More and more people today are opting for remote working and organizing their working day according to their tastes and needs. And when you want to work where and when you want, you need a high-speed, secure Internet connection.<br><br><!--</a>-->
+                    </p>
+                    <img src="https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/advbanner2.jpg" style="width:100%">
+                    
+                    <!-- e.1) Post Text 01 (One column) -->
+                    <div class="th-post-columns-wrapper pt-3">
+                        <h3>What is WiFi Pod?</h3>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="th-post-text-block">
+                                    <!--<a href="https://wifipodpromo.com/?widipub_id=5dddf294ef2864061f1f9253&amp;wtrd_offer_id=5e42915fef2864383a613dc2&amp;wtrd_offer_lids%5B%5D=5e4bf203ef2864381d4d2309&amp;wtrd_prev_pid=5e45097aef28640d28250353">-->Wifi Pod is a pocket-sized wireless modem. It's small and compact and creates a WiFi network around you thanks to 4G LTE technology. You can connect multiple devices at once. Connect your phone, tablet, laptop or any other device to the WiFi Pod! Wifi Pod can be used all over the world. Forget about public unsecure Wifi networks, or your phone bill skyrocketing every time you travel abroad because of obscene roaming prices.<br><br>In addition, WiFi Pod keeps your network protected and ensures that your important data remains secure.<!--</a>-->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="pb-2">
+                    
+                    <!-- e.2) Post Text 02 (two columns) -->
+                    <div class="th-post-columns-wrapper">
+                        <h3><h3 dir="ltr">What is the actual price of FREE public WiFi?</h3></h3>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4 th-flex">
+                                <!-- default image (single product)
+                            <img src="https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/advproduct1.jpg">
+                            -->
+                                <!-- (product pack) -->
+                                <img src="https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/advproduct1.jpg">
+                                                                    <a href="wifipodpromo_default_2.html">
+                                        <button type="button" class="btn btn-blog-post btn-full-width add-to-cart">Official Store</button>
+                                    </a>
+                                    
+                            </div>
+                            <div class="col-sm-12 col-md-8">
+                                <p class="th-post-text-block th-post-text-quote">
+                                    <!--<a href="https://wifipodpromo.com/?widipub_id=5dddf294ef2864061f1f9253&amp;wtrd_offer_id=5e42915fef2864383a613dc2&amp;wtrd_offer_lids%5B%5D=5e4bf203ef2864381d4d2309&amp;wtrd_prev_pid=5e45097aef28640d28250353">-->We believe that the WiFi we use in public places is free, but it can be very expensive. In 2016, in the U.S., cyber-attacks jumped from a number of 6000 attacks to 50,000 and costed people between $57 billion and $109 billion, as well as hundreds of Terabytes of information and personal data. Do you know what kind of networks they use to commit their attacks? They always use public networks, since the infrastructure allows them to carry out operations that they cannot do from a payment connection. Do you really want to be using the same network as these criminals? Do you really want all your sensitive data (passwords, e-mails, bank details) to share a network with the hackers?<br><br>In a recent survey, 81% of respondents in America turn to public Wi-Fi either on occasion or regularly, putting them at risk of losing their personal data, photos, documents and money. As public WiFi becomes more and more common, it's normal that Internet security issues are growing. Wouldn't it be great to have a personal and definitive WiFi wherever you go? With Wifi Pod you can create your own personal secure Wifi WPA2.<br><br><!--</a>-->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="pb-2">
+                    
+                    <!-- e.3) Post Text 03 (two columns) -->
+                    <div class="th-post-columns-wrapper">
+                        <h3><h3 dir="ltr">Wifi Pod is the router of the future</h3></h3>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-8">
+                                <p class="th-post-text-block th-post-text-quote">
+                                    <!--<a href="https://wifipodpromo.com/?widipub_id=5dddf294ef2864061f1f9253&amp;wtrd_offer_id=5e42915fef2864383a613dc2&amp;wtrd_offer_lids%5B%5D=5e4bf203ef2864381d4d2309&amp;wtrd_prev_pid=5e45097aef28640d28250353">-->Without a doubt, Wifi Pod is the router of the future. This is a 4G Mini Router Wifi, a device that has arrived to facilitate the day-to-day life of the people who use it and that allows you to connect wherever you are and in an easy way. It's the best way to connect all your devices to the Internet at once and with guarantees. High-speed wifi connection? Wherever you want.<br><br>Supports up to 10 users connected at the same time without losing speed. It's also very easy to use, yet lightweight and can be carried in your pocket wherever you want.<!--</a>-->
+                                </p>
+                            </div>
+                            <div class="col-sm-12 col-md-4 th-flex">
+                                <!-- default image (single product)
+                            <img src="https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/advproduct1.jpg">
+                            -->
+                                <!-- (product pack) -->
+                                <img src="https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/advproduct2.jpg">
+                                                                    <a href="wifipodpromo_default_2.html">
+                                        <button type="button" class="btn btn-blog-post btn-full-width add-to-cart">Official Store</button>
+                                    </a>
+                                                        </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="pb-2">
+
+                    <!-- f) Post Text 03 -->
+                    <h3 class="pb-3">Technical characteristics of the device... Amazing!</h3>
+                    <img class="marg-bottom-20" src="https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/advbanner3.jpg" width="100%">
+                    <p class="th-post-text-block">
+                        <!--<a href="https://wifipodpromo.com/?widipub_id=5dddf294ef2864061f1f9253&amp;wtrd_offer_id=5e42915fef2864383a613dc2&amp;wtrd_offer_lids%5B%5D=5e4bf203ef2864381d4d2309&amp;wtrd_prev_pid=5e45097aef28640d28250353">-->
+                        It's the most effective way to have your own secure Internet connection anywhere, anytime!<br><br>➠&nbsp;Connected and PROTECTED everywhere: now you can create your own secure WiFi network and share it with anyone while you travel, whether on business or on vacation. You can use it on the street or to replace your home's DSL coverage. Provides you with the ability to block unwanted web content, spam or limit the use of dangerous applications<br><br>➠&nbsp;Stay productive: You can connect to your tablet, cell phone, telephone, game console, laptop and much more. Share a secure connection with your friends and family! Up to 10 devices connected simultaneously. Reaches download speeds of up to 150 Mbps to enjoy HD movies without interruption and download files in seconds.<br><br>➠&nbsp;It won't drain your battery life: never run out of battery power. It has the best technology to make the battery last more than 6 hours of uninterrupted connection.<br><br>➠ Improve the way you travel or work on the go: reduce roaming charges and stop worrying about public Wi-Fi networks! Instead of paying extra for all your devices, you use a single device. No contract, no hidden fees of any kind.<br><br><br>
+                        <!--</a>-->
+                    </p>
+                    
+                     <!-- (product) CTA btns as Blog ending (Post discount msg) -->
+                     <a href="wifipodpromo_default_2.html">
+                        <div class="th-blog-cta-wrapper">
+                            <!-- (product) Discount & CTA -->
+                            <div style="width: 100%;" class="th-blog-product-cta">
+                                    <p class="alert alert-warning th-blog-cta-discount" role="alert">
+                                        <a href="wifipodpromo_default_2.html">LIMITED SALE</a>
+                                        <br>
+                                        <a href="wifipodpromo_default_2.html" class="alert-link"><b>50% off</b> only during the launch period at this link. <b>Buy it now!</b> Limited Sale.</a>
+                                    </p>
+                                    <!--
+                                    <a href="https://wifipodpromo.com/?widipub_id=5dddf294ef2864061f1f9253&amp;wtrd_offer_id=5e42915fef2864383a613dc2&amp;wtrd_offer_lids%5B%5D=5e4bf203ef2864381d4d2309&amp;wtrd_prev_pid=5e45097aef28640d28250353">
+                                        <button type="button" class="btn btn-primary btn-lg btn-block btn-warning">BUY NOW <b> Wifi Pod </b></button>
+                                    </a>
+                                    -->
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- modulo video -->
+                                        <h3 class="pb-3">See how it works!</h3>
+                    
+                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/kuMygPSKc_Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        
+                    <!-- f) Post Text 04 -->
+                    <h3 class="py-3">Do you want one too?</h3>
+                    <p class="th-post-text-block">
+                        <!--<a href="https://wifipodpromo.com/?widipub_id=5dddf294ef2864061f1f9253&amp;wtrd_offer_id=5e42915fef2864383a613dc2&amp;wtrd_offer_lids%5B%5D=5e4bf203ef2864381d4d2309&amp;wtrd_prev_pid=5e45097aef28640d28250353">-->
+                        There is no installation or permanence required, and that makes it a very appealing alternative for many people who work remotely. It's a portable high-speed wifi that will keep you be connected at high speeds wherever and whenever you want.<br>In addition, with this device you’ll be able to surf the Internet and stay up to date on social networks in all your trips, be it for business or pleasure. You will also be able to answer emails wherever you are and at the same time be shopping online using your own wifi network in private mode.<br><br>The device gives you 6 hours of working time and also allows you to control all the devices that are connected to it. Another advantage that can make your day-to-day life easier is that it also manages the use of 4G LTE data of all users if you use the web application, which you can access quickly and conveniently. Wifi Pod is a portable WiFi network and the perfect companion for travelers, parents, students and basically everyone who wants to always stay connected and protected.
+                        <!--</a>-->
+                    </p>
+                    
+                    <!-- f) Post Text 05 -->
+                    <h3 class="py-3">The best on the market is called Wifi Pod</h3>
+                    <p class="th-post-text-block">
+                        <!--<a href="https://wifipodpromo.com/?widipub_id=5dddf294ef2864061f1f9253&amp;wtrd_offer_id=5e42915fef2864383a613dc2&amp;wtrd_offer_lids%5B%5D=5e4bf203ef2864381d4d2309&amp;wtrd_prev_pid=5e45097aef28640d28250353">-->
+                        <!--</a>-->
+                    </p>
+                                        <img class="marg-bottom-20" src="https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/advbanner4.jpg" width="100%">
+                                        <!--
+                    <img class="marg-bottom-20" src="https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/advbanner4.jpg" width="100%">-->
+
+                    <!-- g) Post Text 04 -->
+                    <h3><br>Main advantages</h3>
+                    <ol class="th-post-text-block th-features-list">
+                        <li>You will be able to enjoy high-speed Internet privately in your home, in your car or in the office.<br><br></li>
+                        <li>Allows up to 10 devices to be connected simultaneously. It's perfect for your whole family to stay connected at once without any problems.<br><br></li>
+                        <li>It is a device that provides you with connectivity, portability and functionality.<br><br></li>
+                        <li>It has a long battery life that will allow you to work for about 6 hours without any interruption.<br><br></li>
+                    </ol>
+
+                    
+                    <!-- (product) Blog Post 02 -->
+                                        
+                </div><!-- /.end of Blog Post 02 -->
+                                    <br/>
+                    <h3>How can you buy it in Bangladesh?</h3>
+                    <p class="th-post-text-block">
+                        <!--<a href="https://wifipodpromo.com/?widipub_id=5dddf294ef2864061f1f9253&amp;wtrd_offer_id=5e42915fef2864383a613dc2&amp;wtrd_offer_lids%5B%5D=5e4bf203ef2864381d4d2309&amp;wtrd_prev_pid=5e45097aef28640d28250353" style="text-decoration:none;color:#353535;">-->You can place your order online through the official website in Bangladesh to be sent to your home.<br /><br /> Only during the launch period, the company is offering an exclusive promotion for this product through this link. And if that were not enough, they also offer a discount for bulk purchases.<!--</a>-->
+                    </p>
+                    <br/>
+                                
+                <!-- (product) CTA btns as Blog ending (Post discount msg) -->
+                <div class="th-blog-cta-wrapper">
+                    <!-- (product) Discount & CTA -->
+                    <div style="width: 100%;" class="th-blog-product-cta">
+                                                    <p class="alert alert-warning th-blog-cta-discount" role="alert">
+                                <a href="wifipodpromo_default_2.html">LIMITED SALE</a>
+                                <br>
+                                <a href="wifipodpromo_default_2.html" class="alert-link"><b>50% off</b> only during the launch period at this link. <b>Buy it now!</b> Limited Sale.</a>
+                            </p>
+                            <!--
+                            <a href="https://wifipodpromo.com/?widipub_id=5dddf294ef2864061f1f9253&amp;wtrd_offer_id=5e42915fef2864383a613dc2&amp;wtrd_offer_lids%5B%5D=5e4bf203ef2864381d4d2309&amp;wtrd_prev_pid=5e45097aef28640d28250353">
+                                <button type="button" class="btn btn-primary btn-lg btn-block btn-warning">BUY NOW <b> Wifi Pod </b></button>
+                            </a>
+                            -->
+                            
+                            <a href="wifipodpromo_default_2.html">
+                                <button type="button" class="btn btn-primary btn-lg btn-block btn-orange-first add-to-cart">
+                                    <img class="logShop" src="https://assets.widitrade.com/assets/templates/5c3716cb263e5ceb2d2a2467/ic-oficial.png" style=""> 
+                                    Buy in <b> Official Store</b></button>
+                            </a>
+                                                    
+                                            </div>
+                                        <!-- /.end of CTA btns as Blog ending -->
+                </div>
+                <p class="text-center"></p>
+            </div>
+            <!-- /.end of left side column (blog) -->
+
+            <!-- 02. Right Side COLUMN :: sidebar widgets -->
+            <div class="col-md-4">
+                <!-- aside "Sticky" Block -->
+                <div class="th-cards-container shadow-box d-none d-xl-block">
+                    <!-- 01. (product) Card -->
+                                            <div class="card th-card col-sm-12">
+                            <div class="th-card-head">
+                                <div class="th-card-text pt-3">
+                                                                            <p><b>Wifi Pod</b></p>
+                                                                    </div>
+                                <a href="wifipodpromo_default_2.html">
+                                    <img class="card-img-top shadow-box" src="https://assets.widitrade.com/assets/products/5e428ad7ef2864328a503cf4/advproduct1.jpg" alt="" title="">
+                                </a>
+                                <div class="th-card-text pt-2">
+                                    <a href="wifipodpromo_default_2.html">
+                                        <p><u>Connect to the internet from anywhere with 4G speed!</u></p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                                                <a href="wifipodpromo_default_2.html">
+                                    <button type="button" class="btn btn-blog-post btn-full-width add-to-cart">View promotion</button>
+                                </a>
+                                                            </div>
+                        </div>
+                                                        </div>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.end of container -->
+            <div id="mybutton">
+            <a href="wifipodpromo_default_2.html">
+                <button class="feedback">View promotion >></button>
+            </a>
+        </div>
+        
+    
+    <!-- (common) Footer -->
+<footer class="py-5 th-blog-footer">
+    <div class="container">
+        <p class="th-footer-links">
+                            Copyright &copy; <b>Ecomerzpro 2020</b>.
+                <a href="https://www.dmca.com/Protection/Status.aspx?ID=4101905d-7905-4245-a2bd-441eab099281" title="DMCA.com Protection Status" class="dmca-badge"> <img src ="https://images.dmca.com/Badges/dmca-badge-w200-5x1-11.png?ID=4101905d-7905-4245-a2bd-441eab099281"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+
+                                        <a href="https://ecomerzpro.net/#contact" target="_blank">Contact Us</a> |
+                <a href="https://ecomerzpro.net/privacy.html" target="_blank">Privacy</a> |
+                <a href="https://ecomerzpro.net/impressum.html" target="_blank">Impressum</a>
+                        
+            
+        </p>
+    </div>
+</footer>    
+                <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGZ7Z7Q"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-messaging.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
+            <!--
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    -->
+    <script>
+        
+        
+    $("[class*='add-to-cart']").bind('click',function(event){
+        //console.log('-');
+        $(document).trigger('add_to_cart');
+      });
+</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        $(".date-post").html(moment().locale("en").subtract(1, 'days').format('MMMM, YYYY'));
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('.th-cards-container').addClass("th-sticky");
+            } else {
+                $('.th-cards-container').removeClass("th-sticky");
+            }
+        });
+    </script>
+
+                            <img id="pixel-img" style="display: none;" src="https://store.ecomerzpro.net/pixel-click.gif?avd=5af593e1eeb3a7076b536e32&offer=5e42915fef2864383a613dc2&offerLanding=5e4bf203ef2864381d4d2309&offerPrelanding=5e45097aef28640d28250353&publisher=5dddf294ef2864061f1f9253&attributionDays=30&renderType=prelanding&clickId=5e6f8f4a4e7c5b21b22ef902&chargeCost=0&widipub_id=5dddf294ef2864061f1f9253&wtrd_offer_id=5e42915fef2864383a613dc2&wtrd_offer_pids%5B0%5D=5e45097aef28640d28250353"/>
+                    
+        <script>
+            $("#pixel-img").on("load", function () {
+                
+                            });
+        </script>
+
+        <!-- Facebook Pixel Code -->
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window,document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '551800715557688');
+            fbq('track', 'PageView');
+        </script>
+        <noscript>
+            <img height="1" width="1"
+                 src="https://www.facebook.com/tr?id=551800715557688&ev=PageView
+	&noscript=1"/>
+        </noscript>
+        <!-- End Facebook Pixel Code -->
+        <script>
+            fbq('track', 'PageView', {
+                publisher_id: '5dddf294ef2864061f1f9253'
+            });
+        </script>
+
+        <script>
+            var url = document.URL;
+            console.log(url);
+            var paramReg = new RegExp("[&]wtrd_extId=[A-Za-z0-9,-/:]+");
+            if (url.match(paramReg)) {
+                var value = url.match(paramReg)[0].split('=')[1];
+                url = url.replace(paramReg, '&wtrd_extId2=' + value);
+            }
+            window.history.replaceState( {} , '', url);
+        </script>
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"de79bc54f6","applicationID":"117809743","transactionName":"Y1VXNxcEWEQCWhZQClofdhYWEVlaTEoWVhdRb10MCAA=","queueTime":0,"applicationTime":63,"atts":"TxJUQV8eS0o=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
